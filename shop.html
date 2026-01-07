@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - MVT Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .nav {
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .cart-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-count {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .checkout-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #5568d3;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #5568d3;
+        }
+
+        .add-to-cart:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛍️ Shop</h1>
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="shop.html">Shop</a>
+                <a href="checkout.html">Checkout</a>
+            </div>
+        </div>
+
+        <div class="cart-header">
+            <div class="cart-info">
+                <span>Cart: <span class="cart-count" id="cartCount">0</span> items</span>
+                <span class="cart-total">Total: $<span id="cartTotal">0.00</span></span>
+            </div>
+            <a href="checkout.html" class="checkout-btn" id="checkoutBtn" style="display: none;">Proceed to Checkout</a>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-title">Smartphone Pro</div>
+                <div class="product-description">Latest flagship smartphone with advanced features and premium design.</div>
+                <div class="product-price">$899.99</div>
+                <button class="add-to-cart" data-name="Smartphone Pro" data-price="899.99">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">💻</div>
+                <div class="product-title">Laptop Ultra</div>
+                <div class="product-description">High-performance laptop perfect for work and gaming.</div>
+                <div class="product-price">$1,299.99</div>
+                <button class="add-to-cart" data-name="Laptop Ultra" data-price="1299.99">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎧</div>
+                <div class="product-title">Wireless Headphones</div>
+                <div class="product-description">Premium noise-cancelling headphones with exceptional sound quality.</div>
+                <div class="product-price">$249.99</div>
+                <button class="add-to-cart" data-name="Wireless Headphones" data-price="249.99">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">⌚</div>
+                <div class="product-title">Smart Watch</div>
+                <div class="product-description">Fitness tracker and smartwatch with health monitoring features.</div>
+                <div class="product-price">$349.99</div>
+                <button class="add-to-cart" data-name="Smart Watch" data-price="349.99">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">📷</div>
+                <div class="product-title">Digital Camera</div>
+                <div class="product-description">Professional camera with 4K video recording capabilities.</div>
+                <div class="product-price">$599.99</div>
+                <button class="add-to-cart" data-name="Digital Camera" data-price="599.99">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎮</div>
+                <div class="product-title">Gaming Console</div>
+                <div class="product-description">Next-gen gaming console with immersive gaming experience.</div>
+                <div class="product-price">$499.99</div>
+                <button class="add-to-cart" data-name="Gaming Console" data-price="499.99">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function updateCartDisplay() {
+            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            document.getElementById('cartCount').textContent = cartCount;
+            document.getElementById('cartTotal').textContent = cartTotal.toFixed(2);
+            
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            if (cartCount > 0) {
+                checkoutBtn.style.display = 'inline-block';
+            } else {
+                checkoutBtn.style.display = 'none';
+            }
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price: parseFloat(price), quantity: 1 });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            
+            // Show feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Added!';
+            btn.style.background = '#28a745';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '#667eea';
+            }, 1000);
+        }
+
+        // Add event listeners to all add-to-cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = this.getAttribute('data-price');
+                addToCart(name, price);
+            });
+        });
+
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+
+    <!-- Anti-flickering script -->
+    <script>
+      var timeout = 3000; // Timeout value to remove the flicker (in milliseconds)
+      !(function (h, i, d, e) {
+        var t,
+          n = h.createElement("style");
+        (n.id = e),
+          (n.innerHTML = "body{opacity:0}"),
+          h.head.appendChild(n),
+          (t = d),
+          (i.rmfk = function () {
+            var t = h.getElementById(e);
+            t && t.parentNode.removeChild(t);
+          }),
+          setTimeout(i.rmfk, t);
+      })(document, window, timeout, "abhide");
+    </script>
+
+    <!-- MVTLab Orchestrator -->
+    <!-- For local development, use: http://localhost:6942/scripts/engine.js -->
+    <!-- For staging, use: https://staging-svc.mvtlab.io/scripts/engine.js -->
+    <script
+      src="http://localhost:6942/scripts/engine.js"
+      data-project-key="utCtehVXaunkggg1EKOqbA"
+      data-mvt="engine"
+      data-flicker-class="abtest-hidden"
+      async
+    ></script>
+</body>
+</html>
+

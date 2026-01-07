@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - MVT Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .nav {
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .blog-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card .image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .blog-card .content {
+            padding: 20px;
+        }
+
+        .blog-card .date {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .blog-card h3 {
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .blog-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .blog-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .blog-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="index.html">← Back to Index</a>
+            </div>
+            <h1>Blog</h1>
+            <p>Blog listing page for content engagement testing</p>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="image"></div>
+                <div class="content">
+                    <div class="date">January 15, 2024</div>
+                    <h3>Blog Post Title 1</h3>
+                    <p>This is a sample blog post for testing content engagement and user interaction with different article layouts.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image"></div>
+                <div class="content">
+                    <div class="date">January 10, 2024</div>
+                    <h3>Blog Post Title 2</h3>
+                    <p>Test different headline styles, content lengths, and call-to-action placements to optimize engagement.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image"></div>
+                <div class="content">
+                    <div class="date">January 5, 2024</div>
+                    <h3>Blog Post Title 3</h3>
+                    <p>Measure how different content variations affect user behavior and conversion rates.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image"></div>
+                <div class="content">
+                    <div class="date">December 28, 2023</div>
+                    <h3>Blog Post Title 4</h3>
+                    <p>Compare various content formats and layouts to find the most effective design for your audience.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

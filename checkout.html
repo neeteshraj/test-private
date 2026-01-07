@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MVT Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .nav {
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .form-section {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .order-summary {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .order-summary h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="index.html">← Back to Index</a>
+            </div>
+            <h1>Checkout</h1>
+            <p>Checkout page for conversion and funnel testing</p>
+        </div>
+
+        <div class="checkout-content">
+            <div class="form-section">
+                <h2>Shipping Information</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP Code</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+
+                <h2 style="margin-top: 30px;">Payment Information</h2>
+                <div class="form-group">
+                    <label for="card">Card Number</label>
+                    <input type="text" id="card" name="card" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry">Expiry Date</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="orderItems">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="order-item">
+                    <span>Shipping</span>
+                    <span>$5.00</span>
+                </div>
+                <div class="total">
+                    <span>Total</span>
+                    <span>$<span id="orderTotal">0.00</span></span>
+                </div>
+                <button id="completePurchase">Complete Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load cart from localStorage
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsDiv = document.getElementById('orderItems');
+            let subtotal = 0;
+            
+            if (cart.length === 0) {
+                // Show sample items if cart is empty
+                const sampleItems = [
+                    { name: 'Product 1', price: 29.99, quantity: 1 },
+                    { name: 'Product 2', price: 39.99, quantity: 1 }
+                ];
+                
+                sampleItems.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'order-item';
+                    itemDiv.innerHTML = `
+                        <span>${item.name} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    `;
+                    orderItemsDiv.appendChild(itemDiv);
+                });
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'order-item';
+                    itemDiv.innerHTML = `
+                        <span>${item.name} ${item.quantity > 1 ? `(x${item.quantity})` : ''}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    `;
+                    orderItemsDiv.appendChild(itemDiv);
+                });
+            }
+            
+            const shipping = 5.00;
+            const total = subtotal + shipping;
+            document.getElementById('orderTotal').textContent = total.toFixed(2);
+        }
+
+        // Handle purchase completion
+        document.getElementById('completePurchase').addEventListener('click', function() {
+            // Redirect to thank you page
+            window.location.href = 'thank-you.html';
+        });
+
+        // Initialize cart display
+        loadCart();
+    </script>
+
+    <!-- Anti-flickering script -->
+    <script>
+      var timeout = 3000; // Timeout value to remove the flicker (in milliseconds)
+      !(function (h, i, d, e) {
+        var t,
+          n = h.createElement("style");
+        (n.id = e),
+          (n.innerHTML = "body{opacity:0}"),
+          h.head.appendChild(n),
+          (t = d),
+          (i.rmfk = function () {
+            var t = h.getElementById(e);
+            t && t.parentNode.removeChild(t);
+          }),
+          setTimeout(i.rmfk, t);
+      })(document, window, timeout, "abhide");
+    </script>
+
+    <!-- MVTLab Orchestrator -->
+    <!-- For local development, use: http://localhost:6942/scripts/engine.js -->
+    <!-- For staging, use: https://staging-svc.mvtlab.io/scripts/engine.js -->
+    <script
+      src="http://localhost:6942/scripts/engine.js"
+      data-project-key="utCtehVXaunkggg1EKOqbA"
+      data-mvt="engine"
+      data-flicker-class="abtest-hidden"
+      async
+    ></script>
+</body>
+</html>
+

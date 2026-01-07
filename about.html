@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MVT Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .nav {
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .content {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .content h2 {
+            color: #333;
+            margin: 30px 0 20px 0;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+        }
+
+        .team-member h3 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <a href="index.html">← Back to Index</a>
+            </div>
+            <h1>About Us</h1>
+            <p>About page for content testing campaigns</p>
+        </div>
+
+        <div class="content">
+            <h2>Our Story</h2>
+            <p>This is a test page designed for MVT campaign testing. You can use this page to test different content variations, messaging styles, and layout designs to see which performs better with your audience.</p>
+
+            <h2>Our Mission</h2>
+            <p>We're committed to helping you find the best performing content through data-driven testing and optimization.</p>
+
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <div class="avatar"></div>
+                    <h3>Team Member 1</h3>
+                    <p>Role Description</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar"></div>
+                    <h3>Team Member 2</h3>
+                    <p>Role Description</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar"></div>
+                    <h3>Team Member 3</h3>
+                    <p>Role Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVT Test Pages - Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .page-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .page-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .page-card h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .page-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .page-card .path {
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MVT Test Pages</h1>
+            <p>Navigate to different test pages for campaign testing</p>
+        </div>
+
+        <div class="pages-grid">
+            <a href="home.html" class="page-card">
+                <h2>Home Page</h2>
+                <p>Main landing page for testing campaigns</p>
+                <div class="path">test-html/home.html</div>
+            </a>
+
+            <a href="products.html" class="page-card">
+                <h2>Products Page</h2>
+                <p>Product listing page for e-commerce testing</p>
+                <div class="path">test-html/products.html</div>
+            </a>
+
+            <a href="about.html" class="page-card">
+                <h2>About Page</h2>
+                <p>About us page for content testing</p>
+                <div class="path">test-html/about.html</div>
+            </a>
+
+            <a href="contact.html" class="page-card">
+                <h2>Contact Page</h2>
+                <p>Contact form page for conversion testing</p>
+                <div class="path">test-html/contact.html</div>
+            </a>
+
+            <a href="blog.html" class="page-card">
+                <h2>Blog Page</h2>
+                <p>Blog listing page for content engagement testing</p>
+                <div class="path">test-html/blog.html</div>
+            </a>
+
+            <a href="checkout.html" class="page-card">
+                <h2>Checkout Page</h2>
+                <p>Checkout page for conversion and funnel testing</p>
+                <div class="path">test-html/checkout.html</div>
+            </a>
+
+            <a href="shop.html" class="page-card">
+                <h2>Shop Page</h2>
+                <p>E-commerce shop with cart functionality for purchase testing</p>
+                <div class="path">test-html/shop.html</div>
+            </a>
+
+            <a href="thank-you.html" class="page-card">
+                <h2>Thank You Page</h2>
+                <p>Post-purchase confirmation page for conversion tracking</p>
+                <div class="path">test-html/thank-you.html</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Anti-flickering script -->
+    <script>
+      var timeout = 3000; // Timeout value to remove the flicker (in milliseconds)
+      !(function (h, i, d, e) {
+        var t,
+          n = h.createElement("style");
+        (n.id = e),
+          (n.innerHTML = "body{opacity:0}"),
+          h.head.appendChild(n),
+          (t = d),
+          (i.rmfk = function () {
+            var t = h.getElementById(e);
+            t && t.parentNode.removeChild(t);
+          }),
+          setTimeout(i.rmfk, t);
+      })(document, window, timeout, "abhide");
+    </script>
+
+    <!-- MVTLab Orchestrator -->
+    <!-- For local development, use: http://localhost:6942/scripts/engine.js -->
+    <!-- For staging, use: https://staging-svc.mvtlab.io/scripts/engine.js -->
+    <script
+      src="http://localhost:9000/scripts/engine.js"
+      data-project-key="CpCiRaO5NmTYGv3NFIgPug"
+      data-mvt="engine"
+      data-flicker-class="abtest-hidden"
+      async
+    ></script>
+</body>
+</html>
+
